@@ -680,6 +680,11 @@
                 font-size: 1.2rem;
                 margin: 0 0.5rem;
             }
+            
+            .member-image {
+                width: 100px;
+                height: 100px;
+            }
         }
 
         /* Ajustes para dispositivos muy pequeños */
@@ -722,6 +727,144 @@
             
             .header p {
                 font-size: 1rem;
+            }
+        }
+
+        .team-section {
+            padding: 6rem 0;
+            background: var(--bg-primary);
+        }
+
+        .team-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .team-title h2 {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .team-title p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .member-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            overflow: hidden;
+            border: 3px solid var(--accent-primary);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-icon {
+            font-family: 'Material Icons';
+            font-size: 3rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+
+        .member-name {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .member-role {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .member-social {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .member-social a {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .member-social a:hover {
+            color: var(--accent-primary);
+        }
+
+        .member-skills {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .member-location {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .team-section {
+                padding: 4rem 0;
+            }
+
+            .team-title h2 {
+                font-size: 2rem;
+            }
+
+            .team-members {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .team-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .team-member {
+                padding: 1.5rem;
+            }
+
+            .member-name {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -867,6 +1010,59 @@
                             <h3>8. Descripción de la Base de Datos</h3>
                             <p>Especificación detallada del esquema de base de datos y sus relaciones adaptadas al contexto regional.</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section" id="team">
+        <div class="container">
+            <div class="team-title" data-aos="fade-up">
+                <h2>Integrantes del Proyecto</h2>
+                <p>Conoce al equipo detrás de ChetAPP</p>
+            </div>
+            <div class="team-members">
+                <div class="team-member" data-aos="fade-up" data-aos-delay="100">
+                    <div class="member-image">
+                        <img src="https://avatars.githubusercontent.com/CristianS0827" alt="Cristian Fierro">
+                    </div>
+                    <div class="member-icon">code</div>
+                    <h3 class="member-name">Cristian Fierro</h3>
+                    <p class="member-role">Desarrollador Frontend</p>
+                    <p class="member-skills">Vue 3, Tailwind CSS, JavaScript</p>
+                    <p class="member-location">Colombia</p>
+                    <div class="member-social">
+                        <a href="https://github.com/CristianS0827" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/cristian-fierro-s-b30b57288" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="team-member" data-aos="fade-up" data-aos-delay="200">
+                    <div class="member-image">
+                        <img src="https://avatars.githubusercontent.com/DQuintero15" alt="Daniel Quintero">
+                    </div>
+                    <div class="member-icon">storage</div>
+                    <h3 class="member-name">Daniel Quintero</h3>
+                    <p class="member-role">Desarrollador Backend</p>
+                    <p class="member-skills">NestJS, MongoDB, Postgres, Docker</p>
+                    <p class="member-location">Colombia</p>
+                    <div class="member-social">
+                        <a href="https://github.com/DQuintero15" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/danielquinterodev" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="team-member" data-aos="fade-up" data-aos-delay="300">
+                    <div class="member-image">
+                        <img src="https://avatars.githubusercontent.com/Sebastian-Buitrag0" alt="Sebastian Buitrago">
+                    </div>
+                    <div class="member-icon">developer_mode</div>
+                    <h3 class="member-name">Sebastian Buitrago</h3>
+                    <p class="member-role">Desarrollador Full Stack</p>
+                    <p class="member-skills">Java, Dart, Python</p>
+                    <p class="member-location">Villavicencio, Meta</p>
+                    <div class="member-social">
+                        <a href="https://github.com/Sebastian-Buitrag0" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://co.linkedin.com/in/sebas898" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
