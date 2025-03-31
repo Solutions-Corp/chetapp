@@ -92,8 +92,6 @@
         }
 
         .header {
-            background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
-            color: white;
             padding: 8rem 0 4rem;
             text-align: center;
             position: relative;
@@ -103,20 +101,74 @@
             align-items: center;
         }
 
-        .header::before {
+        .header-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .header-carousel::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.1;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-primary);
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        :root[data-theme="light"] .header-carousel::after {
+            background: linear-gradient(135deg, rgba(18, 52, 88, 0.8), rgba(3, 3, 3, 0.6));
+        }
+
+        :root[data-theme="dark"] .header-carousel::after {
+            background: linear-gradient(135deg, rgba(3, 3, 3, 0.8), rgba(18, 52, 88, 0.6));
         }
 
         .header-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            color: white;
+        }
+
+        .carousel-item img {
+            object-fit: cover;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            opacity: 1;
+        }
+
+        .carousel-indicators {
+            bottom: 20px;
+        }
+
+        .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 5px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+        }
+
+        .carousel-indicators button.active {
+            background-color: white;
         }
 
         .header h1 {
@@ -148,7 +200,7 @@
             display: inline-block;
             padding: 1rem 2rem;
             background: var(--accent-primary);
-            color: white;
+            color: var(--bg-primary);
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
@@ -158,6 +210,7 @@
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            color: var(--bg-primary);
         }
 
         .features {
@@ -886,6 +939,40 @@
     </nav>
 
     <header class="header">
+        <div class="header-carousel">
+            <div id="headerCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="3"></button>
+                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="4"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/image.png" class="d-block w-100" alt="Transporte público">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/image1.png" class="d-block w-100" alt="Sistema de transporte">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/image2.png" class="d-block w-100" alt="Rutas inteligentes">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/image3.png" class="d-block w-100" alt="Aplicación móvil">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/image4.png" class="d-block w-100" alt="Análisis de datos">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#headerCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#headerCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
         <div class="container">
             <div class="header-content" data-aos="fade-up">
                 <h1>ChetAPP</h1>
