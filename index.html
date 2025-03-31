@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
@@ -320,25 +322,28 @@
         }
 
         .theme-toggle {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            background: var(--accent-primary);
-            color: white;
+            background: none;
+            color: var(--text-primary);
             border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
+            padding: 0.5rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            z-index: 1000;
             transition: transform 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .theme-toggle:hover {
             transform: scale(1.05);
+        }
+
+        .theme-icon {
+            font-size: 1.5rem;
+        }
+
+        .theme-text {
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         @media (max-width: 768px) {
@@ -368,18 +373,17 @@
     <nav class="navbar">
         <div class="container">
             <a class="navbar-brand" href="#">ChetAPP</a>
-            <div class="d-flex">
+            <div class="d-flex align-items-center">
                 <a class="nav-link" href="#features">Características</a>
                 <a class="nav-link" href="#activities">Actividades</a>
                 <a class="nav-link" href="#contact">Contacto</a>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <span class="material-icons theme-icon">dark_mode</span>
+                    <span class="theme-text">Modo Oscuro</span>
+                </button>
             </div>
         </div>
     </nav>
-
-    <button class="theme-toggle" onclick="toggleTheme()">
-        <span class="theme-icon">🌙</span>
-        <span class="theme-text">Modo Oscuro</span>
-    </button>
 
     <header class="header">
         <div class="container">
@@ -546,10 +550,10 @@
             const themeText = document.querySelector('.theme-text');
             
             if (newTheme === 'dark') {
-                themeIcon.textContent = '☀️';
+                themeIcon.textContent = 'light_mode';
                 themeText.textContent = 'Modo Claro';
             } else {
-                themeIcon.textContent = '🌙';
+                themeIcon.textContent = 'dark_mode';
                 themeText.textContent = 'Modo Oscuro';
             }
         }
