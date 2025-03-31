@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChetAPP - Tu Aplicación</title>
+    <title>ChetAPP - Documentación del Proyecto</title>
     <style>
         * {
             margin: 0;
@@ -33,6 +33,7 @@
         .hero {
             padding: 4rem 0;
             text-align: center;
+            background: #f8fafc;
         }
 
         .hero h1 {
@@ -47,39 +48,48 @@
             margin-bottom: 2rem;
         }
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        .activities {
             padding: 4rem 0;
         }
 
-        .feature-card {
+        .activity-card {
             background: white;
-            padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            margin-bottom: 2rem;
+            overflow: hidden;
         }
 
-        .feature-card h3 {
-            color: #4f46e5;
-            margin-bottom: 1rem;
-        }
-
-        .cta-button {
-            display: inline-block;
+        .activity-header {
             background: #4f46e5;
             color: white;
-            padding: 1rem 2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s ease;
+            padding: 1.5rem;
         }
 
-        .cta-button:hover {
-            background: #4338ca;
+        .activity-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .activity-content {
+            padding: 2rem;
+        }
+
+        .artifacts {
+            margin-top: 1.5rem;
+        }
+
+        .artifact-item {
+            background: #f8fafc;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            border-left: 4px solid #4f46e5;
+        }
+
+        .artifact-item h3 {
+            color: #4f46e5;
+            margin-bottom: 0.5rem;
         }
 
         .footer {
@@ -95,32 +105,98 @@
     <header class="header">
         <div class="container">
             <h1>ChetAPP</h1>
-            <p>Tu solución innovadora</p>
+            <p>Documentación del Proyecto</p>
         </div>
     </header>
 
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Bienvenido a ChetAPP</h1>
-                <p>Descubre cómo nuestra aplicación puede ayudarte a alcanzar tus objetivos</p>
-                <a href="#" class="cta-button">Comenzar Ahora</a>
+                <h1>Documentación del Sistema</h1>
+                <p>Actividades y Artefactos del Proyecto</p>
             </div>
         </section>
 
-        <section class="features">
+        <section class="activities">
             <div class="container">
-                <div class="feature-card">
-                    <h3>Característica 1</h3>
-                    <p>Descripción de la primera característica principal de tu aplicación.</p>
+                <!-- Actividad 1 -->
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <h2>Actividad 1: Selección del Dominio</h2>
+                    </div>
+                    <div class="activity-content">
+                        <p>Definición del contexto y alcance del sistema de software.</p>
+                        <div class="artifacts">
+                            <div class="artifact-item">
+                                <h3>1. Descripción del Dominio</h3>
+                                <p>Espacio reservado para la descripción del dominio...</p>
+                            </div>
+                            <div class="artifact-item">
+                                <h3>2. Descripción general del alcance</h3>
+                                <p>Espacio reservado para la descripción del alcance...</p>
+                            </div>
+                            <div class="artifact-item">
+                                <h3>3. Diagrama de Contexto</h3>
+                                <p>Espacio reservado para el diagrama de contexto...</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <h3>Característica 2</h3>
-                    <p>Descripción de la segunda característica principal de tu aplicación.</p>
+
+                <!-- Actividad 2 -->
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <h2>Actividad 2: Funcionalidades del Sistema</h2>
+                    </div>
+                    <div class="activity-content">
+                        <p>Definición de requisitos funcionales y arquitectura del sistema.</p>
+                        <div class="artifacts">
+                            <div class="artifact-item">
+                                <h3>4. Listado de funcionalidades</h3>
+                                <p>Espacio reservado para las historias de usuario...</p>
+                            </div>
+                            <div class="artifact-item">
+                                <h3>5. Vista Arquitectónica</h3>
+                                <p>Espacio reservado para la descripción de módulos...</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <h3>Característica 3</h3>
-                    <p>Descripción de la tercera característica principal de tu aplicación.</p>
+
+                <!-- Actividad 3 -->
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <h2>Actividad 3: Tecnologías Base</h2>
+                    </div>
+                    <div class="activity-content">
+                        <p>Selección de tecnologías para el desarrollo del sistema.</p>
+                        <div class="artifacts">
+                            <div class="artifact-item">
+                                <h3>6. Lenguaje de Programación</h3>
+                                <p>Espacio reservado para la descripción del lenguaje...</p>
+                            </div>
+                            <div class="artifact-item">
+                                <h3>7. Framework</h3>
+                                <p>Espacio reservado para la descripción del framework...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actividad 4 -->
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <h2>Actividad 4: Base de Datos</h2>
+                    </div>
+                    <div class="activity-content">
+                        <p>Selección y descripción de la base de datos del sistema.</p>
+                        <div class="artifacts">
+                            <div class="artifact-item">
+                                <h3>8. Descripción de la Base de Datos</h3>
+                                <p>Espacio reservado para la descripción de la base de datos...</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
