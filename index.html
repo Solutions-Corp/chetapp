@@ -352,12 +352,30 @@
             font-weight: 500;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1200px) {
+            .header h1 {
+                font-size: 3.5rem;
+            }
+            
+            .header h1::before {
+                font-size: 3rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
             .container {
-                padding: 0 1.5rem;
+                padding: 0 2rem;
             }
             
             .header h1 {
+                font-size: 3rem;
+            }
+            
+            .header h1::before {
                 font-size: 2.5rem;
             }
             
@@ -365,12 +383,252 @@
                 font-size: 1.1rem;
             }
             
+            .feature-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .navbar {
+                padding: 0.5rem 0;
+            }
+            
+            .navbar-brand {
+                font-size: 1.3rem;
+            }
+            
+            .nav-link {
+                margin: 0 0.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .theme-text {
+                display: none;
+            }
+            
+            .header {
+                padding: 6rem 0 3rem;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header h1::before {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+            
+            .feature-icon {
+                font-size: 2.5rem;
+            }
+            
+            .feature-title {
+                font-size: 1.3rem;
+            }
+            
+            .feature-description {
+                font-size: 0.9rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title p {
+                font-size: 0.9rem;
+            }
+            
             .activity-card {
                 margin-bottom: 1.5rem;
             }
+            
+            .activity-header h2 {
+                font-size: 1.3rem;
+            }
+            
+            .activity-content {
+                padding: 1.5rem;
+            }
+            
+            .artifact-item {
+                padding: 1rem;
+            }
+            
+            .artifact-item h3 {
+                font-size: 1.1rem;
+            }
+            
+            .artifact-item p {
+                font-size: 0.9rem;
+            }
+        }
 
-            .section-title h2 {
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .navbar {
+                padding: 0.5rem 0;
+            }
+            
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+            
+            .nav-link {
+                margin: 0 0.3rem;
+                font-size: 0.8rem;
+            }
+            
+            .header {
+                padding: 5rem 0 2rem;
+            }
+            
+            .header h1 {
                 font-size: 2rem;
+            }
+            
+            .header h1::before {
+                font-size: 1.8rem;
+            }
+            
+            .header p {
+                font-size: 0.9rem;
+            }
+            
+            .cta-button {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.8rem;
+            }
+            
+            .feature-card {
+                padding: 1.2rem;
+            }
+            
+            .feature-icon {
+                font-size: 2rem;
+            }
+            
+            .feature-title {
+                font-size: 1.2rem;
+            }
+            
+            .feature-description {
+                font-size: 0.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title p {
+                font-size: 0.8rem;
+            }
+            
+            .activity-header {
+                padding: 1rem;
+            }
+            
+            .activity-header h2 {
+                font-size: 1.2rem;
+            }
+            
+            .activity-content {
+                padding: 1rem;
+            }
+            
+            .artifact-item {
+                padding: 0.8rem;
+            }
+            
+            .artifact-item h3 {
+                font-size: 1rem;
+            }
+            
+            .artifact-item p {
+                font-size: 0.8rem;
+            }
+            
+            .footer {
+                padding: 2rem 0 1rem;
+            }
+            
+            .footer h2 {
+                font-size: 1.5rem;
+            }
+            
+            .footer p {
+                font-size: 0.9rem;
+            }
+            
+            .social-links a {
+                font-size: 1.2rem;
+                margin: 0 0.5rem;
+            }
+        }
+
+        /* Ajustes para dispositivos muy pequeños */
+        @media (max-width: 360px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .header h1::before {
+                font-size: 1.6rem;
+            }
+            
+            .nav-link {
+                font-size: 0.7rem;
+            }
+            
+            .feature-icon {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Ajustes para dispositivos en modo paisaje */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .header {
+                padding: 4rem 0 2rem;
+                min-height: auto;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header h1::before {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
             }
         }
     </style>
