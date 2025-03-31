@@ -8,6 +8,8 @@
     --card-bg: #ffffff;
     --card-shadow: 0 4px 6px rgba(18, 52, 88, 0.1);
     --border-color: rgb(212, 201, 190);
+    --gradient-start: rgba(18, 52, 88, 0.9);
+    --gradient-end: rgba(3, 3, 3, 0.7);
 }
 
 :root[data-theme="dark"] {
@@ -20,6 +22,9 @@
     --card-bg: rgb(18, 52, 88);
     --card-shadow: 0 4px 6px rgba(3, 3, 3, 0.3);
     --border-color: rgb(212, 201, 190);
+    --gradient-start: rgba(3, 3, 3, 0.9);
+    --gradient-end: rgba(18, 52, 88, 0.7);
+    --hover-text: rgb(241, 239, 236);
 }
 
 * {
@@ -125,17 +130,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--bg-primary);
-    opacity: 0.7;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     z-index: 1;
-}
-
-:root[data-theme="light"] .header-carousel::after {
-    background: linear-gradient(135deg, rgba(18, 52, 88, 0.8), rgba(3, 3, 3, 0.6));
-}
-
-:root[data-theme="dark"] .header-carousel::after {
-    background: linear-gradient(135deg, rgba(3, 3, 3, 0.8), rgba(18, 52, 88, 0.6));
 }
 
 .header-content {
@@ -201,7 +197,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 8px;
-    z-index: 10;
+    z-index: 3;
     list-style: none;
     border: none;
     background: none;
@@ -234,7 +230,7 @@ body {
     background-color: white;
 }
 
-/* Tarjetas de Características */
+/* Features Section */
 .features {
     padding: 6rem 0;
     background: var(--bg-secondary);
@@ -247,9 +243,12 @@ body {
     border-radius: 15px;
     box-shadow: var(--card-shadow);
     margin-bottom: 2rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     height: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid var(--border-color);
 }
 
 .feature-card:hover {
@@ -260,7 +259,6 @@ body {
 .feature-icon {
     font-family: 'Material Icons';
     font-size: 3rem;
-    margin-bottom: 1.5rem;
     color: var(--accent-primary);
     background: var(--bg-secondary);
     width: 80px;
@@ -269,18 +267,58 @@ body {
     border-radius: 50%;
     margin: 0 auto 1.5rem;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .feature-card:hover .feature-icon {
     transform: scale(1.1);
     background: var(--accent-primary);
     color: var(--bg-primary);
+    box-shadow: 0 0 20px var(--accent-primary);
+}
+
+.feature-card:hover .feature-icon::before {
+    opacity: 1;
+}
+
+.feature-card:hover .feature-icon::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    animation: rotate 8s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .feature-title {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
     color: var(--text-primary);
+    margin-bottom: 1rem;
     font-weight: 600;
 }
 
@@ -290,27 +328,232 @@ body {
     line-height: 1.6;
 }
 
-@media (max-width: 768px) {
-    .carousel-indicators {
-        bottom: 20px;
-        gap: 6px;
-    }
-    
-    .carousel-indicators [data-bs-target] {
-        width: 6px !important;
-        height: 6px !important;
-    }
-
-    .feature-card {
-        padding: 2rem;
-    }
-
-    .feature-icon {
-        width: 60px;
-        height: 60px;
-        line-height: 60px;
-        font-size: 2.5rem;
-    }
+/* Activities Section */
+.activity-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Rest of your existing CSS styles... */ 
+.activity-header {
+    background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
+    color: var(--text-primary);
+    padding: 2rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.activity-header::before {
+    content: 'directions_bus';
+    font-family: 'Material Icons';
+    font-size: 2rem;
+    opacity: 0.9;
+}
+
+.activity-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.activity-content {
+    padding: 2.5rem;
+    flex-grow: 1;
+}
+
+.activity-content p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.artifacts {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.artifact-item {
+    background: var(--bg-secondary);
+    padding: 1.8rem;
+    border-radius: 15px;
+    border-left: 4px solid var(--accent-primary);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.artifact-item::before {
+    content: 'article';
+    font-family: 'Material Icons';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.1;
+    font-size: 3rem;
+}
+
+.artifact-item:hover {
+    transform: translateX(5px);
+    background: var(--card-bg);
+}
+
+.artifact-item h3 {
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.artifact-item p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Team Section */
+.team-member {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.team-member:hover .member-name {
+    color: var(--hover-text);
+}
+
+.team-member:hover .member-role {
+    color: var(--hover-text);
+}
+
+.team-member:hover .member-skills,
+.team-member:hover .member-location {
+    color: var(--hover-text);
+    opacity: 0.9;
+}
+
+.team-member:hover .member-social a {
+    color: var(--hover-text);
+}
+
+.team-member:hover .member-social a:hover {
+    color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+.member-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+    border: 3px solid var(--accent-primary);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-icon {
+    font-family: 'Material Icons';
+    font-size: 3rem;
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+}
+
+.member-name {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.member-role {
+    color: var(--accent-primary);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.member-skills {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.member-location {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+.member-social {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.member-social a {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.member-social a:hover {
+    color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .activity-header {
+        padding: 1.5rem;
+    }
+
+    .activity-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .activity-content {
+        padding: 1.5rem;
+    }
+
+    .artifacts {
+        grid-template-columns: 1fr;
+    }
+
+    .artifact-item {
+        padding: 1.5rem;
+    }
+} 
