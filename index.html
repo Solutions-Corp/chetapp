@@ -14,6 +14,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
     <style>
         :root[data-theme="light"] {
             --bg-primary: rgb(241, 239, 236);
@@ -142,33 +144,61 @@
             width: 100%;
         }
 
+        .carousel-indicators {
+            bottom: 0;
+            margin: 0;
+            padding: 0;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .carousel-indicators button {
+            width: 25%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.3);
+            border: none;
+            transition: all 0.3s ease;
+            padding: 0;
+            margin: 0;
+            border-radius: 0;
+        }
+
+        .carousel-indicators button.active {
+            background-color: white;
+        }
+
         .carousel-control-prev,
         .carousel-control-next {
             width: 5%;
             opacity: 0.7;
             transition: opacity 0.3s ease;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .carousel-control-prev {
+            left: 20px;
+        }
+
+        .carousel-control-next {
+            right: 20px;
         }
 
         .carousel-control-prev:hover,
         .carousel-control-next:hover {
             opacity: 1;
+            background: rgba(0, 0, 0, 0.5);
         }
 
-        .carousel-indicators {
-            bottom: 20px;
-        }
-
-        .carousel-indicators button {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin: 0 5px;
-            background-color: rgba(255, 255, 255, 0.5);
-            border: none;
-        }
-
-        .carousel-indicators button.active {
-            background-color: white;
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            width: 25px;
+            height: 25px;
         }
 
         .header h1 {
@@ -628,6 +658,24 @@
             .artifact-item p {
                 font-size: 0.9rem;
             }
+            
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .carousel-control-prev {
+                left: 10px;
+            }
+            
+            .carousel-control-next {
+                right: 10px;
+            }
+            
+            .carousel-indicators {
+                height: 3px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -940,14 +988,7 @@
 
     <header class="header">
         <div class="header-carousel">
-            <div id="headerCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="0" class="active"></button>
-                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="2"></button>
-                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="3"></button>
-                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="4"></button>
-                </div>
+            <div id="headerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="img/image.png" class="d-block w-100" alt="Transporte público">
@@ -964,6 +1005,13 @@
                     <div class="carousel-item">
                         <img src="img/image4.png" class="d-block w-100" alt="Análisis de datos">
                     </div>
+                </div>
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="3"></button>
+                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="4"></button>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#headerCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon"></span>
@@ -1172,31 +1220,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS Animation -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Inicializar AOS
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-
-        function toggleTheme() {
-            const html = document.documentElement;
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            html.setAttribute('data-theme', newTheme);
-            
-            const themeIcon = document.querySelector('.theme-icon');
-            const themeText = document.querySelector('.theme-text');
-            
-            if (newTheme === 'dark') {
-                themeIcon.textContent = 'light_mode';
-                themeText.textContent = 'Modo Claro';
-            } else {
-                themeIcon.textContent = 'dark_mode';
-                themeText.textContent = 'Modo Oscuro';
-            }
-        }
-    </script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
 </body>
 </html>
